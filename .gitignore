@@ -1,0 +1,19 @@
+# Ignore all files in the data folder
+data/
+Literature/
+
+# (Optional) Ignore system files
+__pycache__/
+*.pyc
+.DS_Store
+
+# (Optional) Ignore environment files
+.env
+*.env
+
+# (Optional) Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# (Optional) Ignore model outputs or logs
+*.log
+results/
