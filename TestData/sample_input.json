@@ -1,0 +1,11 @@
+{
+  "student_id": "student_001",
+  "question": "What are the key causes of World War I?",
+  "sample_answer": "The key causes include militarism, alliances, imperialism, and nationalism.",
+  "examples": {
+    "excellent": "World War I began due to militarism, entangled alliances, imperial ambitions, and rising nationalism.",
+    "average": "It started because countries were forming groups and had big armies.",
+    "poor": "It happened because people were angry."
+  },
+  "target_answer": "The war was caused by alliances and the military."
+}
