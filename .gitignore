@@ -1,19 +1,23 @@
-# Ignore all files in the data folder
+# Ignore data and non-code folders
 data/
 Literature/
+results/
 
-# (Optional) Ignore system files
+# Ignore virtual environments
+venv/
+env/
+ENV/
+
+# Ignore system and Python-generated files
 __pycache__/
 *.pyc
+*.pyo
+*.log
 .DS_Store
 
-# (Optional) Ignore environment files
+# Ignore environment variables
 .env
 *.env
 
-# (Optional) Ignore Jupyter Notebook checkpoints
+# Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
-
-# (Optional) Ignore model outputs or logs
-*.log
-results/
