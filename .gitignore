@@ -2,7 +2,7 @@
 data/
 Literature/
 results/
-
+llmgrader/
 # Ignore virtual environments
 venv/
 env/
