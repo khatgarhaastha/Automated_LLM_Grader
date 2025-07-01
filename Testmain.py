@@ -3,7 +3,7 @@ from TestAPP.evaluator import evaluate_response
 from TestStorage.store import save_result
 
 # Load input data
-with open("data/sample_input.json") as f:
+with open("TestData/sample_input.json") as f:
     payload = json.load(f)
 
 question = payload["question"]

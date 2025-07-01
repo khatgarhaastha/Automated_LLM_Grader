@@ -1,8 +1,7 @@
-import json
-
+# prompts.py
 def create_prompt(question, sample_answer, examples, target_answer):
-    return json.dumps({
-        "prompt": f"""
+    # Return plain text prompt, not JSON
+    return f"""
 Evaluate a student's answer based on the question and examples.
 
 Question:
@@ -20,7 +19,4 @@ Now evaluate this student's answer:
 {target_answer}
 
 Provide a brief evaluation and rate it from 1 (Poor) to 5 (Excellent).
-""",
-        "max_tokens": 300,
-        "temperature": 0.3
-    })
+"""
