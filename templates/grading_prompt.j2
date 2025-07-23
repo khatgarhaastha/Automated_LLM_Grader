@@ -1,0 +1,47 @@
+{# Main Grading Prompt Template for LLM Grader System #}
+{# This is the primary template for academic assignment grading #}
+
+{{ grading_instructions }}
+
+{{ grading_criteria }}
+
+{{ grading_scale }}
+
+{{ output_format }}
+
+{% if case_study_question %}
+{{ case_study_header }}
+{{ case_study_question }}
+
+{% endif %}
+
+{% if solution_keys and solution_keys|length > 0 %}
+{{ solution_keys_header }}
+{% for solution in solution_keys %}
+{{ solution_key_prefix }} {{ loop.index }}:
+{{ solution.content }}
+
+{% endfor %}
+{% endif %}
+
+{% if few_shot_examples and few_shot_examples|length > 0 %}
+{{ examples_header }}
+{% for example in few_shot_examples %}
+{{ example_prefix }} {{ loop.index }} - {{ example.grade }} Grade:
+{{ student_response_label }}: {{ example.response }}
+{{ grade_given_label }}: {{ example.grade }}
+{{ feedback_label }}: {{ example.feedback }}
+
+{% endfor %}
+{% endif %}
+
+{% if additional_context %}
+{{ additional_context_header }}
+{{ additional_context }}
+
+{% endif %}
+
+{{ target_response_header }}
+{{ target_response }}
+
+{{ final_instructions }}

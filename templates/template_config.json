@@ -1,0 +1,219 @@
+{
+  "version": "1.0.0",
+  "default_template": "gradingpromt.j2",
+  "description": "LLM Grader Template Configuration",
+  "last_updated": "2024-12-16",
+  
+  "templates": {
+    "gradingpromt.j2": {
+      "name": "Standard Grading Template",
+      "description": "Main template for general academic assignment grading",
+      "version": "1.0.0",
+      "use_cases": [
+        "Case study analysis",
+        "General assignments", 
+        "Mixed content evaluation",
+        "Standard academic work"
+      ],
+      "required_variables": [
+        "case_study_question",
+        "solution_keys", 
+        "few_shot_examples",
+        "target_response"
+      ],
+      "optional_variables": [
+        "additional_context"
+      ],
+      "estimated_tokens": {
+        "min": 2000,
+        "typical": 3500,
+        "max": 6000
+      },
+      "recommended_for": [
+        "undergraduate_courses",
+        "graduate_courses",
+        "business_programs",
+        "general_education"
+      ]
+    },
+    
+    "detailed grading.j2": {
+      "name": "Comprehensive Assessment Template", 
+      "description": "Detailed rubric-based grading with thorough feedback",
+      "version": "1.0.0",
+      "use_cases": [
+        "High-stakes assignments",
+        "Capstone projects",
+        "Thesis evaluations",
+        "Major assessments",
+        "Comprehensive evaluations"
+      ],
+      "required_variables": [
+        "case_study_question",
+        "solution_keys",
+        "few_shot_examples", 
+        "target_response"
+      ],
+      "optional_variables": [
+        "additional_context"
+      ],
+      "estimated_tokens": {
+        "min": 3000,
+        "typical": 5000,
+        "max": 8000
+      },
+      "rubric_categories": [
+        {
+          "name": "Content Knowledge & Accuracy",
+          "weight": "30%",
+          "focus": "Understanding of concepts and factual accuracy"
+        },
+        {
+          "name": "Analytical Thinking & Reasoning", 
+          "weight": "30%",
+          "focus": "Critical thinking and logical argumentation"
+        },
+        {
+          "name": "Evidence & Research Quality",
+          "weight": "25%", 
+          "focus": "Use of sources and supporting evidence"
+        },
+        {
+          "name": "Communication & Presentation",
+          "weight": "15%",
+          "focus": "Writing quality and organization"
+        }
+      ],
+      "recommended_for": [
+        "graduate_courses",
+        "honors_programs", 
+        "research_projects",
+        "final_assessments"
+      ]
+    }
+  },
+  
+  "grading_configurations": {
+    "standard": {
+      "template": "gradingpromt.j2",
+      "temperature": 0.1,
+      "max_tokens": 4000,
+      "description": "Balanced grading for most assignments"
+    },
+    "detailed": {
+      "template": "detailed grading.j2", 
+      "temperature": 0.05,
+      "max_tokens": 6000,
+      "description": "Comprehensive assessment with detailed feedback"
+    },
+    "quick": {
+      "template": "gradingpromt.j2",
+      "temperature": 0.1,
+      "max_tokens": 2000,
+      "description": "Faster grading for large batches"
+    }
+  },
+  
+  "subject_mappings": {
+    "business": {
+      "recommended_template": "gradingpromt.j2",
+      "focus_areas": ["strategic_analysis", "financial_reasoning", "case_studies"],
+      "typical_assignments": ["case_analysis", "business_plans", "strategy_papers"]
+    },
+    "mathematics": {
+      "recommended_template": "gradingpromt.j2", 
+      "focus_areas": ["problem_solving", "mathematical_reasoning", "accuracy"],
+      "typical_assignments": ["problem_sets", "proofs", "applications"]
+    },
+    "writing": {
+      "recommended_template": "detailed grading.j2",
+      "focus_areas": ["argumentation", "evidence", "style", "organization"],
+      "typical_assignments": ["essays", "research_papers", "reports"]
+    },
+    "science": {
+      "recommended_template": "detailed grading.j2",
+      "focus_areas": ["methodology", "analysis", "interpretation", "accuracy"],
+      "typical_assignments": ["lab_reports", "research_projects", "case_studies"]
+    }
+  },
+  
+  "cost_estimates": {
+    "gradingpromt.j2": {
+      "claude_3_sonnet": {
+        "typical_input_tokens": 3500,
+        "typical_output_tokens": 800,
+        "estimated_cost_usd": 0.023
+      },
+      "claude_3_haiku": {
+        "typical_input_tokens": 3500,
+        "typical_output_tokens": 800,
+        "estimated_cost_usd": 0.0018
+      }
+    },
+    "detailed grading.j2": {
+      "claude_3_sonnet": {
+        "typical_input_tokens": 5000,
+        "typical_output_tokens": 1200,
+        "estimated_cost_usd": 0.033
+      },
+      "claude_3_haiku": {
+        "typical_input_tokens": 5000,
+        "typical_output_tokens": 1200,
+        "estimated_cost_usd": 0.0026
+      }
+    }
+  },
+  
+  "validation_rules": {
+    "required_sections": [
+      "grading_instructions",
+      "target_response",
+      "final_instructions"
+    ],
+    "recommended_sections": [
+      "grading_criteria", 
+      "grading_scale",
+      "output_format",
+      "case_study_question",
+      "solution_keys",
+      "few_shot_examples"
+    ],
+    "max_template_size_kb": 50,
+    "min_template_size_kb": 1
+  },
+  
+  "usage_guidelines": {
+    "when_to_use_standard": [
+      "Most undergraduate assignments",
+      "Regular homework and quizzes", 
+      "Standard case studies",
+      "When processing time is important"
+    ],
+    "when_to_use_detailed": [
+      "Major projects and papers",
+      "Graduate-level work",
+      "High-stakes assessments",
+      "When comprehensive feedback is needed"
+    ],
+    "template_selection_criteria": [
+      "Assignment complexity and importance",
+      "Student level (undergraduate vs graduate)",
+      "Available processing time and budget",
+      "Desired feedback depth and detail"
+    ]
+  },
+  
+  "customization_options": {
+    "variable_overrides": {
+      "grading_scale": "Can be customized for different point systems",
+      "output_format": "Can be modified for specific feedback styles", 
+      "grading_criteria": "Can be tailored to subject-specific requirements"
+    },
+    "common_modifications": [
+      "Adjusting point distributions in detailed template",
+      "Adding subject-specific criteria",
+      "Modifying output format for institutional requirements",
+      "Customizing grading scale ranges"
+    ]
+  }
+}
